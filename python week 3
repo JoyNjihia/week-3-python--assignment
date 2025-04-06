@@ -1,0 +1,26 @@
+Calculate_discount.py
+
+def calculate_discount(price, percent_off):
+    # Apply discount if it's 20% or more
+    if percent_off >= 20:
+        reduced_amount = price * (percent_off / 100)
+        new_price = price - reduced_amount
+        return new_price
+    else:
+        # No discount applied
+        return price
+
+# Ask user for original price and discount percentage
+try:
+    original_price = float(input("Enter item price: "))
+    discount_rate = float(input("Enter discount rate (%): "))
+
+    final_cost = calculate_discount(original_price, discount_rate)
+
+    if discount_rate >= 20:
+        print(f"Discounted price: Ksh {final_cost}")
+    else:
+        print(f"No discount given. Price remains: Ksh {final_cost}")
+
+except ValueError:
+    print("Invalid input! Use numbers only.")
